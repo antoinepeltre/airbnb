@@ -6,6 +6,7 @@
         <div class="container">
             
             <%= form_for @room do |f| %>
+            <%= render 'shared/errors' %>
              
             <div class="row">
                     <div class="col-md-4 select">
@@ -60,14 +61,14 @@
             <div class="row">
                     <div class="form-group">
                         <label>Donnez le nom du bateau</label>
-                        <%= f.text_field :listing_name, placeholder: "Titre de l'annonce", class: "form-control" %>
+                        <%= f.text_field :listing_name, placeholder: "Nom du bateau", class: "form-control" %>
                     </div>
                 </div>
                 
             <div class="row">
                     <div class="form-group">
                         <label>Résumé</label>
-                        <%= f.text_area :summary, rows:4, placeholder: "Décrivez le décor, l'ambiance, ce qui se trouve à proximité, etc...",
+                        <%= f.text_area :summary, rows:4, placeholder: "Parlez de votre bateau. Capacité à bord, équipement, sécurité. L'histoire du bateau, votre utilisation avec ce bateau (sortie en famille, régate).",
                         class: "form-control" %>
                     </div>
                 </div>
@@ -75,7 +76,7 @@
             <div class="row">
                     <div class="form-group">
                         <label>Port</label>
-                        <%= f.text_field :address, placeholder: "Où amarré le bateau ?", class: "form-control" %>
+                        <%= f.text_field :address, placeholder: "Où est amarré le bateau ?", class: "form-control" %>
                     </div>
                 </div>
                 
