@@ -21,6 +21,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
 
+gem 'paperclip-cloudinary'
+
 #gem PaperClip
 gem "paperclip"
 
