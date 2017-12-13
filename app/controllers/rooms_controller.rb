@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
     
 before_action :set_room, only: [:show, :edit, :update]
 before_action :authenticate_user!, except: [:show]
+before_action :require_same_user, only: [:edit, :update]
 
     def index
         @rooms = current_user.rooms 
@@ -68,11 +69,8 @@ before_action :authenticate_user!, except: [:show]
     def require_same_user
  
           if current_user.id != @room.user_id
- 
                flash[:danger] = "Vous n'avez pas le droit de modifier cette page"
- 
                redirect_to root_path
- 
           end
  
     end
