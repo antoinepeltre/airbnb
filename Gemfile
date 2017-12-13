@@ -19,6 +19,7 @@ gem 'bootstrap-sass'
 #gem Devise
 gem 'devise'
 gem 'devise-i18n'
+gem 'rails-i18n'
 
 #gem PaperClip
 gem "paperclip"
