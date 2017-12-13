@@ -50,7 +50,7 @@ before_action :authenticate_user!, except: [:show]
  
       params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, 
                                    :listing_name, :summary, :address, :is_wifi, :is_tv, :is_closet, 
-                                   :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, 
+                                   :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, :cheveaux,
                                    :active)
  
  end
