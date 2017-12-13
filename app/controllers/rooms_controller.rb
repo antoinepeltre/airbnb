@@ -44,7 +44,7 @@ before_action :authenticate_user!, except: [:show]
             params[:images].each do |i|
             @room.photos.create(image: i)
             end
-              redirect to @room, notice:"Modification enregistrée..."
+              redirect to edit_room_path(@room), notice:"Modification enregistrée..."
        else
            render :edit
        end
@@ -63,6 +63,18 @@ before_action :authenticate_user!, except: [:show]
                                    :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, :cheveaux,
                                    :active)
  
- end
+    end
+    
+    def require_same_user
+ 
+          if current_user.id != @room.user_id
+ 
+               flash[:danger] = "Vous n'avez pas le droit de modifier cette page"
+ 
+               redirect_to root_path
+ 
+          end
+ 
+    end
  
 end
