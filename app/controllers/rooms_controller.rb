@@ -14,9 +14,14 @@ before_action :authenticate_user!, except: [:show]
     
     def create
       @room = current_user.rooms.build(room_params)
- 
       if @room.save
-            redirect_to @room, notice:"Votre annonce a été ajouté avec succès" 
+          if params[:images]
+            params[:images].each do |i|
+            @room.photos.create(image: i)
+            end
+        end
+        @photos = @room.photos
+            redirect_to edit_room_path(@room), notice:"Votre annonce a été ajouté avec succès" 
       else
            render :new
       end
@@ -25,15 +30,20 @@ before_action :authenticate_user!, except: [:show]
     
     
     def show
+        @photos = @room.photos
        
     end
     
     def edit
-       
+       @photos = @room.photos
     end
     
     def update
        if @room.update(room_params)
+           if params[:images]
+            params[:images].each do |i|
+            @room.photos.create(image: i)
+            end
               redirect to @room, notice:"Modification enregistrée..."
        else
            render :edit
