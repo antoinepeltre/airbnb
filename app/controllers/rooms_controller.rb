@@ -60,9 +60,9 @@ private
     end
     
     def room_params
-       params.require(:room).permit(:home_type, :room_type, :accomodate, :bed_room, :bath_room,
+       params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room,
        :listing_name, :summary, :address, :is_wifi, :is_tv, :is_closet, :is_shampoo,
-       :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, :active) 
+       :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, :cheveaux, :active) 
     end
     
     def require_same_user
