@@ -25,6 +25,8 @@ gem 'paperclip-cloudinary'
 
 gem 'geocoder'
 
+gem 'jquery-ui-rails'
+
 #gem PaperClip
 gem "paperclip"
 
