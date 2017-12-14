@@ -23,6 +23,8 @@ gem 'rails-i18n'
 
 gem 'paperclip-cloudinary'
 
+gem 'geocoder'
+
 #gem PaperClip
 gem "paperclip"
 
