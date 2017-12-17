@@ -11,7 +11,10 @@
     <% @rooms.each do |room| %>
         <div class="card" style="width: 20rem;border: 1px solid gray;padding: 10px;display: inline-block;text-align:center;">
         <div style="width:100%">
-            <%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %> 
+
+                           <%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %> 
+
+            
         </div>    
     
           <div class="card-block">
@@ -24,5 +27,5 @@
     
 </div>
  
-      
+       
  </div>
