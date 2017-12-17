@@ -1,13 +1,34 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading text-center">
         Louez votre yacht
     </div>
     <div class="panel-body">
         <div class="container">
-            
-            
             <%= form_for @room, html: {multipart: true} do |f| %>
             <%= render 'shared/errors' %>
+            
+            <div class="row">
+                    <div class="form-group">
+                        <label>Donnez un titre a votre annonce</label>
+                        <%= f.text_field :listing_name, placeholder: "Nom du bateau", class: "form-control" %>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <%= f.text_field :address, placeholder: "Entrez l'adresse du port ?", class: "form-control" %>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="form-group">
+                        <label>Résumé</label>
+                        <%= f.text_area :summary, rows:4, placeholder: "Parlez de votre bateau. Capacité à bord, équipement, sécurité. L'histoire du bateau, votre utilisation avec ce bateau (sortie en famille, régate).",
+                        class: "form-control" %>
+                    </div>
+            </div>
+            
+            
+            
              
             <div class="row">
                     <div class="col-md-4 select">
@@ -30,7 +51,7 @@
                 
                     <div class="col-md-4 select">
                         <div class="form-group">
-                            <label> Combien de voyageurs maximun ?</label>
+                            <label> Combien de personnes max ?</label>
                             <%= f.select :accommodate, [["1 voyageur",1], ["2 voyageurs",2],
                             ["3 voyageurs", 3], ["4 voyageurs",4], ["5 voyageurs",5], ["6 voyageurs",6], ["7 voyageurs",7], ["8 voyageurs",8]], 
                             prompt: "A sélectionner...", class: "form-control" %>
@@ -57,38 +78,15 @@
                         </div>
                     </div>
                     
-                    <div class="col-md-4 select">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <label>Cheveaux</label>
-                            <%= f.select :cheveaux, [["1 cheveau",1], ["2 cheveau de bain",2],
-                            ["3 cheveau de bain", 3], ["4 cheveau de bain ou plus",4]], 
-                            prompt: "Sélectionner le nombre", class: "form-control" %>
+                            <label>Puissance</label>
+                            <%= f.text_field :cheveaux, placeholder: "Ex : 220 cv", class: "form-control" %>
                         </div>
                     </div>
                 </div>
                 
-            <div class="row">
-                    <div class="form-group">
-                        <label>Donnez le nom du bateau</label>
-                        <%= f.text_field :listing_name, placeholder: "Nom du bateau", class: "form-control" %>
-                    </div>
-                </div>
-                
-            <div class="row">
-                    <div class="form-group">
-                        <label>Résumé</label>
-                        <%= f.text_area :summary, rows:4, placeholder: "Parlez de votre bateau. Capacité à bord, équipement, sécurité. L'histoire du bateau, votre utilisation avec ce bateau (sortie en famille, régate).",
-                        class: "form-control" %>
-                    </div>
-                </div>
-                
-            <div class="row">
-                    <div class="form-group">
-                        <label>Port</label>
-                        <%= f.text_field :address, placeholder: "Où est amarré le bateau ?", class: "form-control" %>
-                    </div>
-                </div>
-                
+        
                 <div class="row">
  
                <div class="col-md-4">
@@ -118,21 +116,21 @@
                     </div>
                     
                     <div class="form-group">
-                        <%= f.check_box :is_shampoo %> Shampoing
+                        <%= f.check_box :is_shampoo %> Bar
                     </div>
                 </div>
                 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <%= f.check_box :is_kitchen %> Cuisine
+                        <%= f.check_box :is_kitchen %> Cuisinier
                     </div>
                     
                     <div class="form-group">
-                        <%= f.check_box :is_breakfast %> Petit déjeuner, café, thé
+                        <%= f.check_box :is_breakfast %> Jet ski
                     </div>
                     
                     <div class="form-group">
-                        <%= f.check_box :is_heating %> Chauffage
+                        <%= f.check_box :is_heating %> Wakeboard
                     </div>
                     
                     <div class="form-group">
@@ -153,11 +151,7 @@
                 </div>
             </div>
                 
-            <div class="row">
-                <div class="form-group">
-                    <%= f.check_box :active %> Annonce active
-                </div>
-            </div>
+            
                 
             <div class="actions">
                       <%= f.submit "Je valide mon annonce", class: "btn btn-primary"%>

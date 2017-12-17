@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="col-md-3">
-     <ul class="sidebar-list">
-          <li class="sidebar-item">
-               <%= link_to 'Modifier mon profil', edit_user_registration_path, class: 'sidebar-link active' %>
-          </li>
-     </ul>
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+      <li class="breadcrumb-item"><a href="#"><%= link_to 'Modifier mon profil', edit_user_registration_path %></a></li>
+      <li class="breadcrumb-item active"><%= link_to 'Voir mon profil', user_path(current_user.id) %></li>
+    </ol>
+     
  <br>
- <%= link_to 'Voir mon profil', user_path(current_user.id), class: 'btn btn-default wide' %>
  </div>
-  <div class="col-md-7 text-center">
+  <div class="col-md-12 text-center">
     <div class="panel panel-default">
       <div class="panel-heading">Mon profil</div>
       <div class="panel-body">
@@ -36,7 +36,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                    <span class="btn btn-default btn-file">
-                        Upload ma photo
+                        Ajouter une photo
                         <%= f.file_field :avatar %>
                    </span>
                 </div>

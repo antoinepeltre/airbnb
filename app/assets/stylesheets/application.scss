@@ -61,13 +61,13 @@ body {
   
 .btn-primary.btn {
  
- border: 1px solid #ff5a5f;
+ border: 1px solid #2F81B7;
  
  border-radius: 2px;
  
  font-weight: bold;
  
- background-color: #ff5a5f;
+ background-color: #2F81B7;
  
  color: #fff;
  
@@ -78,11 +78,11 @@ body {
   
 .btn-primary.btn:hover, .btn-primary.btn:focus {
  
- border-color: #ff7e82;
+ border-color: #467BFD;
  
- border-bottom-color: #fa0008;
+ border-bottom-color: #2F81B7;
  
- background-color: #ff7e82;  
+ background-color: #467BFD;  
  
  outline:none;
  
@@ -363,7 +363,7 @@ input[type="checkbox"]:checked:before {
  
  width: 1.25em;
  
- color: #ff5a5f;
+ color: #2F81B7;
  
  }
  
@@ -419,3 +419,36 @@ input[type="checkbox"]:checked:before {
        margin-bottom: 10px;
  
  }
+ 
+ 
+ .navbar-default {
+  background-color:#2980b9;
+ }
+ 
+.navbar-default .navbar-brand {
+ color:#34495e;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+ color:#fff;
+}
+
+.navbar-default .navbar-nav > li > a {
+ color:#fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+ color:#34495e;
+}
+
+.navbar-brand {
+ font-size:30px;
+}
+
+.breadcrumb > li + li:before {
+ content: none;
+}
+
+.breadcrumb > li {
+ margin:0px 15px;
+}
