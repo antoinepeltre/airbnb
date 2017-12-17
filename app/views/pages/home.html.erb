@@ -1,5 +1,61 @@
-<h2>Bienvenue sur le site de Jul !</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-center">
+            <h1>Réservez des Yachts uniques et découvrez de nouvelles destinations paradisiaques.</h1>
+        </div>
+    </div>
+</div>
+<br>
 
-<%= link_to 'Inscription', new_user_registration_path %>
-<%= link_to 'Connexion', new_user_session_path %>
-<%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
+<br>
+<hr>
+<br>
+<div class="row">
+    <div class="col-md-4">
+        
+    </div>
+</div>
+<div class="row">
+    <% @rooms.each do |room| %>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading preview">
+                    <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+                </div>
+                <div class="panel-body">
+                    <p class="home-link"><b><%= link_to room.price, room_path(room) %> € - <%= link_to room.room_type, room_path(room) %> - <%= link_to pluralize(room.bed_room, "lit"), room_path(room) %></b>
+                    <br><%= link_to room.listing_name, room_path(room) %></p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+<script>
+    $(function() {
+        $('#start_date').datepicker({
+                    dateFormat: 'dd-mm-yy',
+                    monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août',
+                    'Septembre','Octobre','Novembre','Décembre'],
+                    dayNamesMin: ['D','L','M','M','J','V','S'],
+                    minDate: 0,
+                    maxDate: '3m',
+                    onSelect: function(selected) {
+                        var newdate = new Date($("#start_date").datepicker("getDate"));
+                        newdate.setDate(newdate.getDate() + 1);
+                        $('#end_date').datepicker("option","minDate", newdate);
+                    }
+        });
+        
+        $('#end_date').datepicker({
+                    dateFormat: 'dd-mm-yy',
+                    monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août',
+                    'Septembre','Octobre','Novembre','Décembre'],
+                    dayNamesMin: ['D','L','M','M','J','V','S'],
+                    minDate: 0,
+                    maxDate: '3m',
+                    onSelect: function(selected) {
+                        $('#start_date').datepicker("option", "maxDate", selected);
+                    }
+        });
+    })
+</script>
